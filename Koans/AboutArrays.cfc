@@ -7,9 +7,9 @@ component extends="mxunit.framework.TestCase"{
 	*@order 1
 	*/
 	public void function testGetingArrayLength(){
-		var myArray = ["one","two","three"];
-
-		assertEquals(arrayLen(myArray),"__");
+		var myArray = ["one","two","three"]; 
+		// in ColdFusion you can use == or equal to compare two values
+		assert(arrayLen(myArray) == "__", "what is the length of the array?");
 	}
 
 	/**
@@ -18,8 +18,8 @@ component extends="mxunit.framework.TestCase"{
 	public void function testGettingArrayElement(){
 		var myArray = ["one","two","three"];
 		
-		//arrays in coldfusion start with an index of one, not zero like a lot of languages
-		assertEquals(myArray[1],"__");		
+		//arrays in ColdFusion start with an index of one, not zero like a lot of languages
+		assert(myArray[1] == "__", "what is in the 1th position of the array?");
 	}
 
 	/**
@@ -37,7 +37,7 @@ component extends="mxunit.framework.TestCase"{
 		
 		arrayAppend(myArray,"four");
 		
-		assertEquals(myArray[4],"__");
+		assert(myArray[4] == "__", "what is in the 4th position of the array?");
 	}
 
 	/**
@@ -48,7 +48,7 @@ component extends="mxunit.framework.TestCase"{
 
 		arraySort(myArray,"text");
 
-		assertEquals(myArray[2],"__");
+		assert(myArray[2] == "__", "what is in the 2nd position of the array?");
 	}
 
 	/**
@@ -59,6 +59,17 @@ component extends="mxunit.framework.TestCase"{
 
 		arraySort(myArray,"numeric");
 
-		assertEquals(myArray[3],"__");
+		assert(myArray[3] == "__", "what is in the 3rd position of the array?");
+	}
+
+	/**
+	*@order 7
+	*/
+	public void function testArraySwap(){
+		var myArray = ["Koans","ColdFusion","Project"];
+
+		arraySwap(myArray,1,2);
+
+		assert(myArray[1] == "__", "what is in the 1st position of the array?");
 	}
 }
